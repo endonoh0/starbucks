@@ -15,14 +15,22 @@ const Head = () => {
       <View style={styles.header}></View>
       <Text style={styles.title}>It's a great day for coffee ☕</Text>
       <View style={styles.headertopnav}>
+
         <View style={styles.navleft}>
-          <FontAwesomeIcon icon={faSignInAlt} size={25} color={""} />
-          <Text style={styles.navitem}>Sign in</Text>
-          <FontAwesomeIcon icon={faEnvelope} size={25} color={""} />
-          <Text style={styles.navitem}>Inbox</Text>
+          <View style={styles.left}>
+            <FontAwesomeIcon icon={faSignInAlt} size={25} color={""} />
+            <Text style={styles.navitem}>Sign in</Text>
+          </View>
+          <View style={styles.left}>
+            <FontAwesomeIcon icon={faEnvelope} size={25} color={""} />
+            <Text style={styles.navitem}>Inbox</Text>
+          </View>
         </View>
+
         <View style={styles.navright}>
-          <FontAwesomeIcon icon={faCog} size={25} color={""} />
+          <View style={styles.right}>
+            <FontAwesomeIcon icon={faCog} size={25} color={""} />
+          </View>
         </View>
       </View>
     </>
@@ -49,7 +57,8 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between'
   },
   navitem: {
-    fontSize: 16
+    fontSize: 16,
+    paddingLeft: 11
   },
   navleft: {
     paddingTop: 10,
@@ -59,6 +68,13 @@ const styles = StyleSheet.create({
   navright: {
     paddingTop: 10,
     paddingBottom: 10,
+  },
+  left: {
+    flexDirection: 'row',
+    padding: 11
+  },
+  right: {
+    padding: 11
   }
 });
 
