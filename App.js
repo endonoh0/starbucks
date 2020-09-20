@@ -8,6 +8,7 @@
  */
 
 import React from 'react';
+
 import {
   StyleSheet,
   ScrollView,
@@ -16,9 +17,7 @@ import {
   StatusBar,
 } from 'react-native';
 
-import {
-  Header,
-} from 'react-native/Libraries/NewAppScreen';
+import Head from './Head';
 
 const App: () => React$Node = () => {
   return (
@@ -26,29 +25,14 @@ const App: () => React$Node = () => {
       <StatusBar barStyle="dark-content" />
       <ScrollView
         style={styles.scrollView}>
-          <View style={styles.header}></View>
-          <Text style={styles.title}>It's a great day for coffee ☕</Text>
-          <View style={styles.headertopnav}>
-            <View style={styles.nav}>
-            </View>
-          </View>
+        <Head/>
+
       </ScrollView>
     </>
   );
 };
 
 const styles = StyleSheet.create({
-  header: {
-    paddingTop: 30,
-    paddingLeft: 60,
-    paddingRight: 60,
-  },
-  title: {
-    fontSize: 30,
-    fontWeight: '500',
-    color: '#1A191A',
-    marginTop: 10
-  }
 });
 
 export default App;
