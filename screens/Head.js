@@ -1,4 +1,7 @@
 import React from 'react';
+
+import { useNavigation } from '@react-navigation/native';
+
 import {
   StyleSheet,
   ScrollView,
@@ -6,10 +9,14 @@ import {
   Text,
   StatusBar,
 } from 'react-native';
+
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import { faSignInAlt, faEnvelope, faCog } from '@fortawesome/free-solid-svg-icons';
+import Login from './Login';
 
-const Head = () => {
+const Head = ({screenName}) => {
+  const navigation = useNavigation();
+
   return (
     <>
       <View style={styles.header}></View>
@@ -18,7 +25,11 @@ const Head = () => {
 
         <View style={styles.navleft}>
           <View style={styles.left}>
-            <FontAwesomeIcon icon={faSignInAlt} size={25} color={""} />
+            <FontAwesomeIcon
+              icon={faSignInAlt}
+              size={25} color={""}
+              onPress={() => navigation.navigate(screenName)}
+              />
             <Text style={styles.navitem}>Sign in</Text>
           </View>
           <View style={styles.left}>
