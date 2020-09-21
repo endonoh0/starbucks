@@ -7,7 +7,8 @@
  * @flow strict-local
  */
 import 'react-native-gesture-handler';
-import * as React from 'react';
+// import * as React from 'react';
+import React, { useContext, useEffect } from "react";
 
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator, HeaderTitle } from '@react-navigation/stack';
@@ -22,12 +23,43 @@ const Tab = createBottomTabNavigator();
 
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import { faSignInAlt, faEnvelope, faCog } from '@fortawesome/free-solid-svg-icons';
+// import { ActivityIndicator, AsyncStorage } from 'react-native';
+import AsyncStorage from '@react-native-community/async-storage';
+import { AuthContext } from './src/AuthProvider';
 
+import {
+  StyleSheet,
+  ScrollView,
+  View,
+  Text,
+  StatusBar,
+  Button
+} from 'react-native'
 
 export default function App() {
+  const { user, login } = useContext(AuthContext);
+
+  useEffect(() => {
+    // Check if the user is logged in or not
+    async () => {
+      await AsyncStorage.getItem("user")
+        .then(userString => {
+          if (userString) {
+            login();
+          }
+      })
+        .catch(err => {
+          console.log('error', err);
+      });
+    }
+  }, []);
+
   return (
     <>
     <NavigationContainer>
+      {user ?
+        <Text>User is logged in </Text>
+        : (
       <Stack.Navigator
         initialRouteName="Home"
       >
@@ -43,7 +75,7 @@ export default function App() {
             headerTitle: "Starbucks Rewards"
           }}
         />
-      </Stack.Navigator>
+      </Stack.Navigator> )}
     </NavigationContainer>
     {/* <NavigationContainer>
         <Tab.Navigator>

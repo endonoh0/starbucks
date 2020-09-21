@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 
 import {
   StyleSheet,
@@ -6,12 +6,21 @@ import {
   View,
   Text,
   StatusBar,
+  Button
 } from 'react-native';
+import { AuthContext } from '../AuthProvider';
 
 const Login = () => {
+  const {login} = useContext(AuthContext);
+
   return (
     <>
-    <Text>Hello, World!</Text>
+    <Button
+      title="login"
+      onPress={() => {
+        login();
+      }}
+    />
     </>
   );
 }
