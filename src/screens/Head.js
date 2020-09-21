@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { useNavigation } from '@react-navigation/native';
+import { NavigationContainer } from '@react-navigation/native';
 
 import {
   StyleSheet,
@@ -14,6 +15,7 @@ import {
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import { faSignInAlt, faEnvelope, faCog } from '@fortawesome/free-solid-svg-icons';
 import Login from './Login';
+import { AppTabs } from './Tabs';
 
 const Head = ({ navigation }) => {
   // const navigation = useNavigation();
@@ -49,6 +51,7 @@ const Head = ({ navigation }) => {
         title="Join Now"
         onPress={() => navigation.navigate('Signup')}
       />
+      <AppTabs />
     </>
   );
 }

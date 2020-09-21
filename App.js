@@ -12,17 +12,13 @@ import React, { useContext, useEffect } from "react";
 
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator, HeaderTitle } from '@react-navigation/stack';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 import Head from './src/screens/Head';
 import Login from './src/screens/Login';
 import Signup from './src/screens/Signup';
 
 const Stack = createStackNavigator();
-const Tab = createBottomTabNavigator();
 
-import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
-import { faSignInAlt, faEnvelope, faCog } from '@fortawesome/free-solid-svg-icons';
 // import { ActivityIndicator, AsyncStorage } from 'react-native';
 import AsyncStorage from '@react-native-community/async-storage';
 import { AuthContext } from './src/AuthProvider';
@@ -35,6 +31,8 @@ import {
   StatusBar,
   Button
 } from 'react-native'
+import { AppTabs } from './src/screens/Tabs';
+import Stores from './src/screens/Stores';
 
 export default function App() {
   const { user, login } = useContext(AuthContext);
@@ -58,7 +56,7 @@ export default function App() {
     <>
     <NavigationContainer>
       {user ?
-        <Text>User is logged in </Text>
+        <Stores />
         : (
       <Stack.Navigator
         initialRouteName="Home"
@@ -77,15 +75,6 @@ export default function App() {
         />
       </Stack.Navigator> )}
     </NavigationContainer>
-    {/* <NavigationContainer>
-        <Tab.Navigator>
-          <Tab.Screen name="Home" component={Head} />
-          <Tab.Screen name="Scan" component={Scan} />
-          <Tab.Screen name="Order" component={Order} />
-          <Tab.Screen name="Gift" component={Gift} />
-          <Tab.Screen name="Stores" component={Stores} />
-        </Tab.Navigator>
-    </NavigationContainer> */}
     </>
   );
 }

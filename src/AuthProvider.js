@@ -19,6 +19,7 @@ export const AuthProvider = ({children}) => {
         }
       },
       logout: async () => {
+        setUser(null);
         await AsyncStorage.removeItem("user");
       },
     }}>
