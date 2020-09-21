@@ -10,40 +10,39 @@ import 'react-native-gesture-handler';
 import * as React from 'react';
 
 import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
+import { createStackNavigator, HeaderTitle } from '@react-navigation/stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
-import Head from './screens/Head';
-import Login from './screens/Login';
-import Signup from './screens/Signup';
+import Head from './src/screens/Head';
+import Login from './src/screens/Login';
+import Signup from './src/screens/Signup';
 
 const Stack = createStackNavigator();
-// const AuthStack = createStackNavigator();
 const Tab = createBottomTabNavigator();
 
-// export default () => {
-//   return (
-//   <NavigationContainer>
-//     <AuthStack.Navigator>
-//       <AuthStack.Screen name="Home" >
-//           {props => <Head {...props} screenName={Login} />}
-//       </AuthStack.Screen>
-//       <AuthStack.Screen name="Sign In" component={Login} />
-//       <AuthStack.Screen name="Starbucks Rewards In" component={Signup} />
-//     </AuthStack.Navigator>
-//   </NavigationContainer>
-//   );
-// }
+import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
+import { faSignInAlt, faEnvelope, faCog } from '@fortawesome/free-solid-svg-icons';
+
 
 export default function App() {
   return (
     <>
     <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen name="Home">
-          {props => <Head {...props} screenName={Login} />}
-        </Stack.Screen>
+      <Stack.Navigator
+        initialRouteName="Home"
+      >
+        <Stack.Screen
+          name="Home"
+          component={Head}
+        />
         <Stack.Screen name="Login" component={Login} />
+        <Stack.Screen
+          name="Signup"
+          component={Signup}
+          options={{
+            headerTitle: "Starbucks Rewards"
+          }}
+        />
       </Stack.Navigator>
     </NavigationContainer>
     {/* <NavigationContainer>

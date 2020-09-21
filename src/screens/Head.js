@@ -8,14 +8,15 @@ import {
   View,
   Text,
   StatusBar,
+  Button,
 } from 'react-native';
 
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import { faSignInAlt, faEnvelope, faCog } from '@fortawesome/free-solid-svg-icons';
 import Login from './Login';
 
-const Head = ({screenName}) => {
-  const navigation = useNavigation();
+const Head = ({ navigation }) => {
+  // const navigation = useNavigation();
 
   return (
     <>
@@ -28,7 +29,7 @@ const Head = ({screenName}) => {
             <FontAwesomeIcon
               icon={faSignInAlt}
               size={25} color={""}
-              onPress={() => navigation.navigate(screenName)}
+              onPress={() => navigation.navigate('Login')}
               />
             <Text style={styles.navitem}>Sign in</Text>
           </View>
@@ -44,6 +45,10 @@ const Head = ({screenName}) => {
           </View>
         </View>
       </View>
+      <Button
+        title="Join Now"
+        onPress={() => navigation.navigate('Signup')}
+      />
     </>
   );
 }
