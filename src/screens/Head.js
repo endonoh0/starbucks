@@ -1,24 +1,20 @@
 import React from 'react';
 
-import { useNavigation } from '@react-navigation/native';
-import { NavigationContainer } from '@react-navigation/native';
-
 import {
   StyleSheet,
-  ScrollView,
   View,
   Text,
-  StatusBar,
   Button,
+  Image
 } from 'react-native';
 
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import { faSignInAlt, faEnvelope, faCog } from '@fortawesome/free-solid-svg-icons';
-import Login from './Login';
-import { AppTabs } from './Tabs';
+import { AppTabs } from '../comps/Tabs';
+import Carousel from '../comps/carousel';
+import { ScrollView } from 'react-native-gesture-handler';
 
 const Head = ({ navigation }) => {
-  // const navigation = useNavigation();
 
   return (
     <>
@@ -47,6 +43,35 @@ const Head = ({ navigation }) => {
           </View>
         </View>
       </View>
+
+      <ScrollView scrollEventThrottle={16}>
+        <View>
+          <Text style={{fontSize: 12, fontWeight: '700', paddingHorizontal: 20 }}>
+            STARBUCKS REWARDS
+          </Text>
+
+          <View style={{height: 200, marginTop: 20}}>
+            <ScrollView
+              horizontal={true}
+              showsHorizontalScrollIndicator={false}
+            >
+              <Carousel
+                imageUri={require('../assets/image.jpeg')}
+                description="Scan in store or order ahead to earn Stars, then redeem for food, drinks and more"
+              />
+              <Carousel
+                imageUri={require('../assets/image.jpeg')}
+                description="Pay directly (even cash) or preload a Starbucks Card to get Rewards Faster"
+              />
+              <Carousel
+                imageUri={require('../assets/image.jpeg')}
+                description="Keep an eye out for games, offers, a treat on your birthday, and more!"
+              />
+            </ScrollView>
+          </View>
+        </View>
+      </ScrollView>
+
       <Button
         title="Join Now"
         onPress={() => navigation.navigate('Signup')}

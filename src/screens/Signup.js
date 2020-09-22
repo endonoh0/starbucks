@@ -30,6 +30,7 @@ const Signup = () => {
       setLastName("");
       setEmail("");
       setPassword("");
+      alert("Sign up successful");
     } catch (error) {
       console.log(`An error has occured: ${error}`);
     }
