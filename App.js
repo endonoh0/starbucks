@@ -1,14 +1,5 @@
-'use strict';
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow strict-local
- */
-import 'react-native-gesture-handler';
-// import * as React from 'react';
 import React, { useContext, useEffect } from "react";
+import 'react-native-gesture-handler';
 
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator, HeaderTitle } from '@react-navigation/stack';
@@ -19,19 +10,10 @@ import Signup from './src/screens/Signup';
 
 const Stack = createStackNavigator();
 
-// import { ActivityIndicator, AsyncStorage } from 'react-native';
 import AsyncStorage from '@react-native-community/async-storage';
 import { AuthContext } from './src/AuthProvider';
 
-import {
-  StyleSheet,
-  ScrollView,
-  View,
-  Text,
-  StatusBar,
-  Button
-} from 'react-native'
-import { AppTabs } from './src/screens/Tabs';
+
 import Stores from './src/screens/Stores';
 
 export default function App() {
@@ -78,28 +60,3 @@ export default function App() {
     </>
   );
 }
-
-// import {
-//   StyleSheet,
-//   ScrollView,
-//   StatusBar,
-// } from 'react-native';
-
-
-// const App: () => React$Node = () => {
-//   return (
-//     <>
-//       <StatusBar barStyle="dark-content" />
-//       <ScrollView
-//         style={styles.scrollView}>
-//         <Head/>
-
-//       </ScrollView>
-//     </>
-//   );
-// };
-
-// const styles = StyleSheet.create({
-// });
-
-// export default App;
